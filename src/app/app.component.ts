@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { LayoutService } from './shared/layouts/layout/layout.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,13 @@ import { Component } from '@angular/core';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'starter-app';
+  constructor(private layoutService: LayoutService) {}
+
+  ngOnInit() {
+    this.layoutService.updateLayout();
+  }
+
+  currentLayout(): string {
+    return this.layoutService.getLayout();
+  }
 }

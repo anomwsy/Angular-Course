@@ -1,0 +1,33 @@
+<h3>course</h3>
+<ul *ngFor="let course of courses">
+    <li>{{ course }}</li>
+</ul>
+<div>
+    <h2>TODO LIST</h2>
+    <input type="text" 
+    [(ngModel)]="todo"
+    name="todo"
+    (keyup.enter)="onKeyUp($event)"/>
+</div>
+<ul>
+    <li *ngFor="let item of ToDoList">{{ item }}</li>
+</ul>
+<img src="{{ imgUrl }}" style="width: 100px; height: 100px">
+<button class="btn btn-primary {{ isActive ? 'bgBlue' : 'bgRed' }}"  (click)="buttonClick($event)">Shake</button>
+<ng-container *ngIf="isActive else elseBlock">
+    <img src="{{ imgRight }}" style="width: 100px; height: 100px">
+</ng-container>
+<ng-template #elseBlock>
+    <img src="{{ imgLeft }}" style="width: 100px; height: 100px">
+</ng-template>
+<div class="mb-2 mt-2">
+    {{ currency.title | uppercase}} <br/>
+    {{ currency.price | currency: 'Rp.' }} <br/>
+    {{ currency.rating | number}} <br/>
+    {{ currency.students | number}} <br/> 
+    {{ currency.releaseDate | date: 'dd MMMM yyyy'}}
+</div>
+<div class="mb-2 mt-2">
+    {{ text | summary : {value : 50 } }} 
+</div>
+

@@ -1,0 +1,16 @@
+<div class="task-list-box container mb-3">
+  <div class="card mb-5">
+    <div class="card-header">
+      <h2>{{title}}</h2>
+    </div>
+    <div class="card-body">
+      <div>
+        <app-task-item *ngFor="let taskEl of tasks"
+                       [task]="taskEl"
+                       ></app-task-item>
+        <a class="link-dark"
+        (click)="onAddTask()">(+) add a new task</a>
+      </div>
+    </div>
+  </div>
+</div>

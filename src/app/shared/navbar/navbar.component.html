@@ -1,0 +1,8 @@
+<div class="navbar {{ isOpenedNav ? '' : 'close' }}">
+    <ul>
+        <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"><i class="fa fa-home"></i> Course</a></li>
+        <li><a routerLink="/product" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"><i class="fa fa-book"></i> Product</a></li>
+        <li><a routerLink="/tasks" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"><i class="fa fa-pencil"></i> Tasks</a></li>
+        <li><a routerLink="/archived" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"><i class="fa fa-archive"></i> Archives</a></li>
+    </ul>
+</div>
