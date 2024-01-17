@@ -5,6 +5,7 @@ import { filter } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
+
 export class LayoutService {
   private currentLayout: string = 'default';
 
@@ -21,7 +22,6 @@ export class LayoutService {
     if (route && route.data) {
       this.currentLayout = route.data['layout'] || 'default';
     } else {
-      // Atur nilai default jika data tidak ada
       this.currentLayout = 'default';
     }
   }

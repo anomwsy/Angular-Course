@@ -19,6 +19,10 @@ import { ArchivedComponent } from './modules/archived/archived.component';
 import { ArchivedService } from './modules/archived/archived.service';
 import { TaskService } from './modules/tasks/task.service';
 import { TasksComponent } from './modules/tasks/tasks.component';
+import { AuthLayoutComponent } from './shared/layouts/auth-layout/auth-layout.component';
+import { CardComponent } from './modules/card/card.component';
+import { CardItemComponent } from './modules/card/card-item/card-item.component';
+import { CardInputComponent } from './modules/card/card-input/card-input.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +37,11 @@ import { TasksComponent } from './modules/tasks/tasks.component';
     TaskListComponent, 
     TaskItemComponent,
     TasksComponent,
-    ArchivedComponent
+    ArchivedComponent,
+    AuthLayoutComponent,
+    CardComponent,
+    CardItemComponent,
+    CardInputComponent
   ],
   imports: [
     BrowserModule,

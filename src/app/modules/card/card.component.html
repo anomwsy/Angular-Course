@@ -1,0 +1,10 @@
+<app-card-input [name]="cardName" (addToCart)="addCard($event)"></app-card-input>
+
+<div class="result">
+    <app-card-item *ngFor="let card of cards; index as i">
+        <div class="name"><b>{{card.name}}</b></div>
+        <div class="removeButton">
+            <button class="btn btn-danger" (click)="removeCard(card.id)">Remove</button>
+        </div>
+    </app-card-item>
+</div>
