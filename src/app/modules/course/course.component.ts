@@ -8,7 +8,7 @@ import { CourseService } from './course.service';
 })
 export class CourseComponent implements OnInit {
   title: string = 'course';
-  courses: string[] = [];
+  courses: any[] = [];
   imgUrl: string = 'https://angular.io/assets/images/logos/angular/angular.png';
   imgRight: string = '/assets/img/left.png';
   imgLeft: string = '/assets/img/right.png';
@@ -42,4 +42,30 @@ export class CourseComponent implements OnInit {
   addValue() {
     this.courses = this.courseService.getCourse();
   }
+
+  loadData() {
+    this.courses = [
+      {id : 1, name : 'Angular'},
+      {id : 2, name : 'React'},
+      {id : 3, name : 'Vue'},
+      {id : 4, name : 'Flutter'},
+      {id : 5, name : 'Dart'},
+      {id : 6, name : 'Java'},
+    ];
+  }
+
+  loadDataAgain() {
+    this.courses = [
+      {id : 1, name : 'Angular'},
+      {id : 2, name : 'React'},
+      {id : 3, name : 'Vue2'},
+      {id : 4, name : 'Flutter2'},
+      {id : 5, name : 'Dart2'},
+      {id : 6, name : 'Java2'},
+      {id : 7, name : 'Angular2'},
+    ];
+  }
+
+  trackByCourse(course: any) {}
+
 }

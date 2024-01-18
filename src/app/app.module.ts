@@ -23,6 +23,9 @@ import { AuthLayoutComponent } from './shared/layouts/auth-layout/auth-layout.co
 import { CardComponent } from './modules/card/card.component';
 import { CardItemComponent } from './modules/card/card-item/card-item.component';
 import { CardInputComponent } from './modules/card/card-input/card-input.component';
+import { InputFormatDirective } from './shared/directives/input-format.directive';
+import { HighlightDirective } from './shared/directives/highlight.directive';
+import { ContactFormComponent } from './modules/contact-form/contact-form.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +44,10 @@ import { CardInputComponent } from './modules/card/card-input/card-input.compone
     AuthLayoutComponent,
     CardComponent,
     CardItemComponent,
-    CardInputComponent
+    CardInputComponent,
+    InputFormatDirective,
+    HighlightDirective,
+    ContactFormComponent
   ],
   imports: [
     BrowserModule,

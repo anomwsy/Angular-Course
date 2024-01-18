@@ -1,6 +1,8 @@
 <h3>course</h3>
-<ul *ngFor="let course of courses">
-    <li>{{ course }}</li>
+<button class="btn btn-primary" (click)="loadData()">Load</button>
+<button class="btn btn-primary" (click)="loadDataAgain()">LoadAgain</button>
+<ul *ngFor="let course of courses; index as i; trackBy: trackByCourse">
+    <li appHighlight>{{ course.name }}</li>
 </ul>
 <div>
     <h2>TODO LIST</h2>

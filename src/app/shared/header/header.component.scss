@@ -24,11 +24,13 @@ i{
     margin: 0;
 }
 
-.center-header{
+.center-header>a{
     display: flex;
     grid-area: center;
     justify-content: center;
     align-items: center;
+    text-decoration: none;
+    color: black;
 }
 
 h4{

@@ -14,7 +14,6 @@ export class CardComponent {
 
   addCard(value : string) {
     if(value !== '') {
-
       this.cards.push(
         {id : new Date().toString()+Math.random().toString(), name : value}
       );

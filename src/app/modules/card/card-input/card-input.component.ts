@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter ,Input} from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-card-input',
@@ -6,7 +6,7 @@ import { Component, Output, EventEmitter ,Input} from '@angular/core';
   styleUrl: './card-input.component.scss'
 })
 export class CardInputComponent {
-  @Input() name : string = '';
+  name : string = '';
   @Output() addToCart = new EventEmitter<string>();
   onAddCard(){
     this.addToCart.emit(this.name);

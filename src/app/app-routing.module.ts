@@ -6,6 +6,7 @@ import { TaskListComponent } from './modules/tasks/task-list/task-list.component
 import { TasksComponent } from './modules/tasks/tasks.component';
 import { ArchivedComponent } from './modules/archived/archived.component';
 import { CardComponent } from './modules/card/card.component';
+import { ContactFormComponent } from './modules/contact-form/contact-form.component';
 
 const routes: Routes = [
   { path: '', component: CourseComponent, data: { layout: 'default' } },
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'tasks', component: TasksComponent, data: { layout: 'default' }},
   { path: 'archived', component: ArchivedComponent, data: { layout: 'default' } },
   { path: 'card', component: CardComponent, data: { layout: 'default' } },
+  { path: 'contact-form', component: ContactFormComponent, data: { layout: 'default' } },
 ];
 
 @NgModule({
