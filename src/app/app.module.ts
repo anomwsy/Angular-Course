@@ -26,6 +26,7 @@ import { CardInputComponent } from './modules/card/card-input/card-input.compone
 import { InputFormatDirective } from './shared/directives/input-format.directive';
 import { HighlightDirective } from './shared/directives/highlight.directive';
 import { ContactFormComponent } from './modules/contact-form/contact-form.component';
+import { LoginComponent } from './modules/Auth/login/login.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { ContactFormComponent } from './modules/contact-form/contact-form.compon
     CardInputComponent,
     InputFormatDirective,
     HighlightDirective,
-    ContactFormComponent
+    ContactFormComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

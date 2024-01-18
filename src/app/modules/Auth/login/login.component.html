@@ -1,0 +1,21 @@
+<h3>Login</h3>
+
+<form action="" ngform #f="ngForm" (submit)="onSubmit()" class="form">
+    <label class="input" for="username">
+        <input placeholder="Username" class="form-control" required type="text" name="username" ngModel #username="ngModel" [(ngModel)]="formValues.userName"/>
+        <div class="alert alert-danger" *ngIf="username.touched && !username.valid">
+            <div *ngIf="username.touched && !username.valid && username.errors?.['required']">username is required</div>
+        </div>
+    </label>
+    <label class="input" for="password">
+        <input placeholder="Password" autocomplete="password" class="form-control" type="password" name="password" required ngModel #password="ngModel" [(ngModel)]="formValues.password"/>
+    </label>
+    <div class="alert alert-danger" *ngIf="password.touched && !password.valid">
+        <div *ngIf="password.touched && !password.valid && password.errors?.['required']">Password is required</div>
+    </div>
+    <label for="remamberme">
+        <input type="checkbox" class="form-check-input" name="remamberme" id="remamberme" [(ngModel)]="formValues.remamberMe">
+        Remember me
+    </label>
+    <button type="login" class="btn btn-primary" [disabled]="!f.valid">Login</button>
+</form>

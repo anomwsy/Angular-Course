@@ -20,7 +20,7 @@ export class HighlightDirective {
 
     return hexColor;
   }
-  @HostListener('mouseover') sadasdsfaagsdfasdfsa() {
+  @HostListener('mouseenter') sadasdsfaagsdfasdfsa() {
     this.element.nativeElement.style.backgroundColor = this.randColor();
     this.element.nativeElement.style.fontWeight = 'bold';
     this.element.nativeElement.style.cursor = 'pointer';

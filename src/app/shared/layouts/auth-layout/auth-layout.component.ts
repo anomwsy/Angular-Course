@@ -7,6 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AuthLayoutComponent {
   constructor() { }
+  logoUrl = 'https://angular.io/assets/images/logos/angular/angular.png';
   isOpenedNav : boolean = true;
   setOpenedNav(){
     this.isOpenedNav = !this.isOpenedNav

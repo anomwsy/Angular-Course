@@ -7,6 +7,7 @@ import { TasksComponent } from './modules/tasks/tasks.component';
 import { ArchivedComponent } from './modules/archived/archived.component';
 import { CardComponent } from './modules/card/card.component';
 import { ContactFormComponent } from './modules/contact-form/contact-form.component';
+import { LoginComponent } from './modules/Auth/login/login.component';
 
 const routes: Routes = [
   { path: '', component: CourseComponent, data: { layout: 'default' } },
@@ -15,6 +16,7 @@ const routes: Routes = [
   { path: 'archived', component: ArchivedComponent, data: { layout: 'default' } },
   { path: 'card', component: CardComponent, data: { layout: 'default' } },
   { path: 'contact-form', component: ContactFormComponent, data: { layout: 'default' } },
+  { path: 'login', component: LoginComponent, data: { layout: 'auth' } },
 ];
 
 @NgModule({

@@ -1,9 +1,9 @@
 <h3>Contact Form</h3>
 
-<form action="" ngform #f="ngForm" (submit)="onSubmit(f.value)">
+<form action="" ngform #f="ngForm" (submit)="onSubmit()">
     <label class="input" for="firstname">
         First Name
-        <input class="form-control" required minlength="5" pattern="kucing" type="text" name="firstname" ngModel #firstname="ngModel" (input)="onInputHandler(firstname)"/>
+        <input class="form-control" required minlength="5" pattern="kucing" type="text" name="firstname" ngModel #firstname="ngModel" (input)="onInputHandler(firstname)" [(ngModel)]="formValues.firstname"/>
         <div class="alert alert-danger" *ngIf="firstname.touched && !firstname.valid">
             <div *ngIf="firstname.touched && !firstname.valid && firstname.errors?.['required']">firstname is required</div>
             <div *ngIf="firstname.touched && !firstname.valid && firstname.errors?.['pattern']"> firstname does not match pattern</div>
@@ -12,14 +12,21 @@
     </label>
     <label class="input" for="lastname">
         Last Name
-        <input class="form-control" type="text" name="lastname" ngModel #lastname="ngModel" />
+        <input class="form-control" type="text" name="lastname" ngModel #lastname="ngModel" [(ngModel)]="formValues.lastname"/>
     </label>
     <label class="input" for="comment">
         Comment
-        <textarea class="form-control" name="comment" ngModel #comment="ngModel"></textarea>
+        <textarea class="form-control" name="comment" ngModel #comment="ngModel" [(ngModel)]="formValues.comment"></textarea>
+    </label>
+    <label class="input" for="contactMethod">
+        Contact Method
+        <select name="contactMethod" id="contactMethod">
+            <option value=""></option>
+            <option *ngFor="let option of optionContactMethod" [value]="option.id">{{option.name}}</option>        
+            </select>
     </label>
     <label for="subscribe">
-        <input type="checkbox" name="subscribe" id="subscribe" ngModel>
+        <input type="checkbox" class="form-check-input" name="subscribe" id="subscribe" [(ngModel)]="formValues.subscribe">
         Subscribe
     </label>
     <button type="submit" class="btn btn-primary" [disabled]="!f.valid">Submit</button>

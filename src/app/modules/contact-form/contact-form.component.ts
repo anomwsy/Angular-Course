@@ -6,11 +6,29 @@ import { Component } from '@angular/core';
   styleUrl: './contact-form.component.scss'
 })
 export class ContactFormComponent {
+  formValues : {
+    firstname : string,
+    lastname : string,
+    comment : string,
+    subscribe : boolean,
+    contactMethod : number | string
+  } = {
+    firstname : '',
+    lastname : '',
+    comment : '',
+    subscribe : false,
+    contactMethod : ""
+  }
 
  onInputHandler(firstname : any){
 
  }  
- onSubmit(value : any){
-   console.log(value);
+ onSubmit(){
+   console.log(this.formValues);
  }
+
+ optionContactMethod = [
+   {id : 1, name : 'Email'},
+   {id : 2, name : 'Phone'},
+ ]
 }
