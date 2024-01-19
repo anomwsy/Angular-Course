@@ -6,7 +6,7 @@ import { CourseComponent } from './modules/course/course.component';
 import { CourseService } from './modules/course/course.service';
 import { ProductComponent } from './modules/product/product.component';
 import { ProductService } from './modules/product/product.service';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SummaryPipe } from './shared/pipes/summary/summary.pipe';
 import { LayoutComponent } from './shared/layouts/layout/layout.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
@@ -27,6 +27,14 @@ import { InputFormatDirective } from './shared/directives/input-format.directive
 import { HighlightDirective } from './shared/directives/highlight.directive';
 import { ContactFormComponent } from './modules/contact-form/contact-form.component';
 import { LoginComponent } from './modules/Auth/login/login.component';
+import { PostComponent } from './modules/post/post.component';
+import { HttpClientModule } from '@angular/common/http';
+import { PostService } from './modules/post/post.service';
+import { NotFoundComponent } from './modules/not-found/not-found.component';
+import { UserComponent } from './modules/user/user.component';
+import { UserService } from './modules/user/user.service';
+import { DetailUserComponent } from './modules/user/detail-user/detail-user.component';
+
 
 @NgModule({
   declarations: [
@@ -49,19 +57,27 @@ import { LoginComponent } from './modules/Auth/login/login.component';
     InputFormatDirective,
     HighlightDirective,
     ContactFormComponent,
-    LoginComponent
+    LoginComponent,
+    PostComponent,
+    NotFoundComponent,
+    UserComponent,
+    DetailUserComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [
     CourseService,
     ProductService,
     LayoutService,
     ArchivedService,
-    TaskService
+    TaskService,
+    PostService,
+    UserService
   ],
   bootstrap: [AppComponent]
 })

@@ -1,0 +1,31 @@
+<p>post works!</p>
+<div class="mb-2">
+    <label for="" class="form-label" style="display: flex; gap: 10px; width: 500px;">
+        <input type="text" class="form-control" placeholder="Enter Title" [(ngModel)]="title"
+            (keyup.enter)="createElement(title)">
+        <button class="btn btn-danger" *ngIf="isEditing" (click)="cancelEditing()">Cancel</button>
+    </label>
+</div>
+<table class="table table-striped">
+    <thead >
+        <tr>
+            <th></th>
+            <th>Title</th>
+            <th>Body</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let post of posts">
+            <td style="display: flex; gap: 5px;">
+                <button class="btn btn-primary" (click)="onEdit(post)">Edit</button>
+                <button class="btn btn-danger" (click)="deleteClick(post)">Delete</button>
+            </td>
+            <td>
+                {{ post.title | summary: {value : 20 } }}
+            </td>
+            <td>
+                {{ post.body | summary: {value : 50 } }}
+            </td>
+        </tr>
+    </tbody>
+</table>

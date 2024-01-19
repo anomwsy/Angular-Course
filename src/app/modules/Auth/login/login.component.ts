@@ -1,28 +1,55 @@
 import { Component } from '@angular/core';
-type formValues = {
-  userName : string,
-  password : string,
-  remamberMe : boolean
-} 
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrl: './login.component.scss'
+  styleUrl: './login.component.scss',
 })
 export class LoginComponent {
-  formValues : formValues = {
-    userName : '',
-    password : '',
-    remamberMe : false
+  detailForm!: FormGroup;
+
+  constructor(private formBuilder: FormBuilder, private route: ActivatedRoute, private router: Router) {
+    this.detailForm = this.createForm();
   }
 
- onSubmit(){
-   console.log(this.formValues);
-   alert(JSON.stringify(this.formValues))
- }
+  onSubmit() {
+    this.markFormGroupTouched(this.detailForm);
+    if (this.detailForm.valid) {
+      const value = this.detailForm.getRawValue();
+      console.log(value);
+      this.router.navigate(['/']);
+    }
+  }
 
- optionContactMethod = [
-   {id : 1, name : 'Email'},
-   {id : 2, name : 'Phone'},
- ]
+  markFormGroupTouched(formGroup: FormGroup) {
+    Object.values(formGroup.controls).forEach((control) => {
+      if (control instanceof FormGroup) {
+        this.markFormGroupTouched(control);
+      }
+      control.markAsTouched();
+    });
+  }
+  createForm() {
+    return this.formBuilder.group({
+      email: ['', Validators.compose([Validators.required, Validators.email])],
+      password: ['', Validators.compose([Validators.required])],
+      termAndCondition: ['', Validators.compose([Validators.requiredTrue])],
+    });
+  }
+
+  //  updateSelectedJutsu(event: any) {
+  //   const checkbox = event.target;
+  //   const value = checkbox.value;
+
+  //   if (checkbox.checked) {
+  //     this.formValues.jutsu.push(value);
+  //   } else {
+  //     const index = this.formValues.jutsu.indexOf(value);
+  //     if (index !== -1) {
+  //       this.formValues.jutsu.splice(index, 1);
+  //     }
+  //   }
+  // }
 }

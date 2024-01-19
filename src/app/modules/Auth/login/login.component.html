@@ -1,21 +1,26 @@
 <h3>Login</h3>
 
-<form action="" ngform #f="ngForm" (submit)="onSubmit()" class="form">
-    <label class="input" for="username">
-        <input placeholder="Username" class="form-control" required type="text" name="username" ngModel #username="ngModel" [(ngModel)]="formValues.userName"/>
-        <div class="alert alert-danger" *ngIf="username.touched && !username.valid">
-            <div *ngIf="username.touched && !username.valid && username.errors?.['required']">username is required</div>
+<form action="" (submit)="onSubmit()" class="form" [formGroup]="detailForm">
+    <label class="input" for="email">
+        <input placeholder="Enter Your Email" class="form-control" type="text" name="email"  formControlName="email"/>
+        <div class="alert alert-danger" *ngIf="detailForm.controls['email'].touched && !detailForm.controls['email'].valid">
+            <div *ngIf="detailForm.controls['email'].errors?.['required']">Email is required</div>
+            <div *ngIf="detailForm.controls['email'].errors?.['email']">Email is not valid</div>
         </div>
     </label>
     <label class="input" for="password">
-        <input placeholder="Password" autocomplete="password" class="form-control" type="password" name="password" required ngModel #password="ngModel" [(ngModel)]="formValues.password"/>
+        <input placeholder="Enter Your Password" autocomplete="password" class="form-control" type="password" name="password"  formControlName="password"/>
+        <div class="alert alert-danger" *ngIf="detailForm.controls['password'].touched && !detailForm.controls['password'].valid">
+            <div *ngIf="detailForm.controls['password'].errors?.['required']">Password is required</div>
+       </div>
     </label>
-    <div class="alert alert-danger" *ngIf="password.touched && !password.valid">
-        <div *ngIf="password.touched && !password.valid && password.errors?.['required']">Password is required</div>
-    </div>
-    <label for="remamberme">
-        <input type="checkbox" class="form-check-input" name="remamberme" id="remamberme" [(ngModel)]="formValues.remamberMe">
-        Remember me
+    <label for="termAndCondition">
+        <input type="checkbox" class="form-check-input" name="termAndCondition" id="termAndCondition"  formControlName="termAndCondition"/>
+        Term and Condition
     </label>
-    <button type="login" class="btn btn-primary" [disabled]="!f.valid">Login</button>
+    <div class="alert alert-danger" *ngIf="detailForm.controls['termAndCondition'].touched && !detailForm.controls['termAndCondition'].valid">
+        <div *ngIf="detailForm.controls['termAndCondition'].errors?.['required']">TnA Should be Checked</div>
+    </div>        
+
+    <button type="login" class="btn btn-primary" >Login</button>
 </form>

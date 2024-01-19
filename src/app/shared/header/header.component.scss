@@ -39,13 +39,14 @@ h4{
 
 .right-header{
     grid-area: right;
+    text-align: right;
+}
+
+.logout{
+    padding: 5px 15px;
 }
 
 i.fa {
     width: 20px;
     height: 20px;
-}
-
-button{
-    background-color: red;
 }

@@ -10,7 +10,7 @@
   flex-direction: column;
   background-color: rgb(224, 224, 224);
   padding: 30px;
-  border-radius: 20px;
+  border-radius: 15px;
   box-shadow: 1px 4px 5px rgba(0, 110, 255, 0.5); /* Menambahkan bayangan */    
 }
 
@@ -23,6 +23,11 @@
     width: 100%;
     box-sizing: border-box;
 }
+
+.header h4{
+margin: 0;
+}
+
 
 .left-header{
     grid-area: left;
@@ -41,4 +46,6 @@
 .right-header{
     grid-area: right;
 }
+
+
 

@@ -1,0 +1,11 @@
+<h3>User</h3>
+
+<div class="user-container">
+    <div class="user-item" *ngFor="let user of users" (click)="selectUser(user.id)">
+        <div class="user-data">
+            <div><b>Name : </b> {{ user.name }}</div>
+            <div><b>Email : </b> {{ user.email }}</div>
+            <div><b>Phone : </b> {{ user.phone }}</div>
+        </div>
+    </div>
+</div>
