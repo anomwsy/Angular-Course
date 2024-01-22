@@ -1,16 +1,19 @@
 <h3>Detail User</h3>
 
-<div>
-    <table class="table">
-        <tr>
-          <th>Name</th>
-          <td>{{ user?.name }}</td>
-        </tr>
-        <tr>
-          <th>Email</th>
-          <td>{{ user?.email }}</td>
-        </tr>
-      </table>
+<div class="container">
+    <form class="form" [formGroup]="detailForm">
+      <tr>
+        <th>Name</th>
+        <td>
+          <input type="text" formControlName="name" class="form-control">
+        </td>
+      </tr>
+      <tr>
+        <th>Email</th>
+        <td>
+          <input type="text" formControlName="email" class="form-control">
+        </td>
+      </tr>
+    </form>
 </div>
-
 <a routerLink="/user" class="btn btn-primary">Back</a>

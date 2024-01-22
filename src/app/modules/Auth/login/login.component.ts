@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 
@@ -14,10 +14,12 @@ export class LoginComponent {
     this.detailForm = this.createForm();
   }
 
+
   onSubmit() {
     this.markFormGroupTouched(this.detailForm);
     if (this.detailForm.valid) {
       const value = this.detailForm.getRawValue();
+      localStorage.setItem('token', JSON.stringify(this.detailForm.getRawValue()));
       console.log(value);
       this.router.navigate(['/']);
     }
@@ -38,6 +40,8 @@ export class LoginComponent {
       termAndCondition: ['', Validators.compose([Validators.requiredTrue])],
     });
   }
+
+
 
   //  updateSelectedJutsu(event: any) {
   //   const checkbox = event.target;

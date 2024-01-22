@@ -12,20 +12,22 @@ import { PostComponent } from './modules/post/post.component';
 import { NotFoundComponent } from './modules/not-found/not-found.component';
 import { UserComponent } from './modules/user/user.component';
 import { DetailUserComponent } from './modules/user/detail-user/detail-user.component';
+import { AuthGuard } from './AuthGuard';
+import { DisAuthGuard } from './DisAuthGuard';
 
 const routes: Routes = [
-  { path: '', component: CourseComponent, data: { layout: 'default' } },
-  { path: 'product', component: ProductComponent, data: { layout: 'default' } },
-  { path: 'tasks', component: TasksComponent, data: { layout: 'default' }},
-  { path: 'archived', component: ArchivedComponent, data: { layout: 'default' } },
-  { path: 'card', component: CardComponent, data: { layout: 'default' } },
+  { path: '', component: CourseComponent, canActivate: [AuthGuard], data: { layout: 'default' } },
+  { path: 'product', component: ProductComponent, canActivate: [AuthGuard],data: { layout: 'default' } },
+  { path: 'tasks', component: TasksComponent, canActivate: [AuthGuard],data: { layout: 'default' }},
+  { path: 'archived', component: ArchivedComponent, canActivate: [AuthGuard],data: { layout: 'default' } },
+  { path: 'card', component: CardComponent, canActivate: [AuthGuard],data: { layout: 'default' } },
   { path: 'contact-form', component: ContactFormComponent, data: { layout: 'default' } },
-  { path: 'login', component: LoginComponent, data: { layout: 'auth' } },
-  { path: 'post', component: PostComponent, data: { layout: 'default' } },
-  { path: 'user', component: UserComponent, data: { layout: 'default' } },
-  { path: 'user/:id', component: DetailUserComponent, data: { layout: 'default' } },
-  { path: '**', component: NotFoundComponent, data: { layout: 'auth' } }
-  // { path: '**', redirectTo: '/NotFound' } ,
+  { path: 'login', component: LoginComponent, canActivate: [DisAuthGuard], data: { layout: 'auth' } },
+  { path: 'post', component: PostComponent, canActivate: [AuthGuard],data: { layout: 'default' } },
+  { path: 'user', component: UserComponent, canActivate: [AuthGuard],data: { layout: 'default' } },
+  { path: 'user/:id', component: DetailUserComponent, canActivate: [AuthGuard],data: { layout: 'default' } },
+  { path: 'NotFound', component: NotFoundComponent, data: { layout: 'auth' } },
+  { path: '**', redirectTo: '/NotFound' } ,
 ];
 
 @NgModule({

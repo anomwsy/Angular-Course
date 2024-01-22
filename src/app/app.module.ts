@@ -34,6 +34,7 @@ import { NotFoundComponent } from './modules/not-found/not-found.component';
 import { UserComponent } from './modules/user/user.component';
 import { UserService } from './modules/user/user.service';
 import { DetailUserComponent } from './modules/user/detail-user/detail-user.component';
+import { AuthGuard } from './AuthGuard';
 
 
 @NgModule({

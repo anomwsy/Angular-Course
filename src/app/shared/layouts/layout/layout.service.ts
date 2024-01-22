@@ -12,16 +12,18 @@ export class LayoutService {
   constructor(public router: Router) {
     this.router.events.pipe(
       filter(event => event instanceof NavigationEnd)
-    ).subscribe(() => {
-      this.updateLayout();
-    });
-  }
-
-  updateLayout() {
-    const route = this.router.routerState.snapshot.root.firstChild;
+      ).subscribe(() => {
+        this.updateLayout();
+      });
+    }
+    
+    updateLayout() {
+      const route = this.router.routerState.snapshot.root.firstChild;
+      console.log(route);
     if (route && route.data) {
       this.currentLayout = route.data['layout'] || 'default';
-    } else {
+    }
+     else {
       this.currentLayout = 'default';
     }
   }
